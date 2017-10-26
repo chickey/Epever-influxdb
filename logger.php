@@ -46,6 +46,7 @@ for ($i = 0; $i < count($tracer->statData); $i++) {
         curl_setopt($ch, CURLOPT_POST,           1 );
         $Item = $tracer->statData[$i];
         $Key_Name = str_replace(" ","-",$tracer->statKey[$i]);
+		$Key_Name = 'Stat-' . $Key_Name;
         Print str_pad($i, 2, '0', STR_PAD_LEFT)." ".$Key_Name." ".$Item."\n";
         curl_setopt($ch, CURLOPT_POSTFIELDS,     "$Key_Name,unit=statData value=$Item" );
         curl_setopt($ch, CURLOPT_HTTPHEADER,     array('Content-Type: text/plain'));
